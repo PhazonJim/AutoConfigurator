@@ -8,7 +8,7 @@ import RuleCard from './RuleCard';
 import UploadPanel from './UploadPanel.js'
 
 import YAML from 'yaml'
-import { RuleList } from 'jss';
+import convert from './utils/yamlUtils'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -47,7 +47,9 @@ export default function App() {
 
   const onSaveInput = () => {
     myObject = YAML.parseAllDocuments(values['buffer']);
-    setValues({myRules: myObject})
+    let jsonObject = convert(myObject)
+    console.log(jsonObject)
+    setValues({myRules: jsonObject})
   };
 
   return (
@@ -69,12 +71,12 @@ export default function App() {
         />
         <div>
           {
+            
             values.myRules.map((rule, i) => {
-              if (rule.contents !== null){
                 return (<RuleCard 
-                  values={rule.contents.items} 
+                  values={rule} 
                   />)
-              }
+              
             })
           }
         </div>

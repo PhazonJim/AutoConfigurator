@@ -42,9 +42,9 @@ export default function RuleCard(props) {
               return(
                 <TextField
                     id="standard-name"
-                    label={k.key.value}
+                    label={k}
                     className={classes.textField}
-                    value={k.value.value}
+                    value={k}
                     margin="normal"
               />
               )
