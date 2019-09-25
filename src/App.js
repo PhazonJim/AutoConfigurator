@@ -5,10 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import RuleCard from './RuleCard';
-import UploadPanel from './UploadPanel.js'
-
+import UploadPanel from './UploadPanel.js';
+import Button from '@material-ui/core/Button';
 import YAML from 'yaml'
 import convert from './utils/yamlUtils'
+
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -32,9 +33,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+
 export default function App() {
   const classes = useStyles();
-  let myObject = [];
+  let yamlRules = [];
 
   const [values, setValues] = React.useState({
     buffer: '',
@@ -46,10 +49,9 @@ export default function App() {
   }
 
   const onSaveInput = () => {
-    myObject = YAML.parseAllDocuments(values['buffer']);
-    let jsonObject = convert(myObject)
-    console.log(jsonObject)
-    setValues({myRules: jsonObject})
+    yamlRules = YAML.parseAllDocuments(values['buffer']);
+    let rules = convert(yamlRules)
+    setValues({myRules: rules})
   };
 
   return (
@@ -71,12 +73,10 @@ export default function App() {
         />
         <div>
           {
-            
             values.myRules.map((rule, i) => {
-                return (<RuleCard 
-                  values={rule} 
-                  />)
-              
+              if (rule){
+                return (<RuleCard values={rule} />)
+              }
             })
           }
         </div>

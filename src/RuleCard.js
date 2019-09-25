@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
   card: {
     minWidth: 275,
     marginTop: '10px',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    backgroundColor: '#f2f3ff'
   },
   bullet: {
     display: 'inline-block',
@@ -25,28 +26,29 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 200,
   },
 }));
 
 export default function RuleCard(props) {
   const {values} = props
   const classes = useStyles();
-  console.log(values)
   return (
     <Card className={classes.card}>
       <CardContent>
         {
-          values.map( (k, v)  =>{
-            console.log(k, v)
+          Object.keys(values).map( (k)  =>{
               return(
-                <TextField
-                    id="standard-name"
-                    label={k}
-                    className={classes.textField}
-                    value={k}
-                    margin="normal"
-              />
+                <div>
+                  <TextField
+                      id="standard-name"
+                      label={k}
+                      className={classes.textField}
+                      value={JSON.stringify(values[k])}
+                      margin="normal"
+                      fullWidth
+                  />
+                  <br/>
+                </div>
               )
           })
         }
