@@ -11,9 +11,11 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "clsx": "latest",
+    "eslint-plugin-flowtype": "^4.6.0",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
+    "react-swipeable-views": "^0.13.9",
     "yaml": "^1.6.0"
   },
   "devDependencies": {

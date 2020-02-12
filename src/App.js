@@ -1,15 +1,14 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import RuleCard from './RuleCard';
-import UploadPanel from './UploadPanel.js';
-import Button from '@material-ui/core/Button';
-import YAML from 'yaml'
-import convert from './utils/yamlUtils'
-
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import SwipeableViews from 'react-swipeable-views';
+import TabPanel from './TabPanel.js';
+import ImportPanel from './ImportPanel.js';
+import NewRule from './NewRule.js';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -33,27 +32,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
+function a11yProps(index) {
+  return {
+    id: `full-width-tab-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`,
+  };
+}
 
 export default function App() {
   const classes = useStyles();
-  let yamlRules = [];
 
-  const [values, setValues] = React.useState({
-    buffer: '',
-    myRules: []
-  });
+  const [value, setValue] = React.useState(0);
+  const theme = useTheme();
 
-  const handleChangeForm = name => event => {
-    setValues({ ...values, [name]: event.target.value});
-  }
-
-  const onSaveInput = () => {
-    yamlRules = YAML.parseAllDocuments(values['buffer']);
-    let rules = convert(yamlRules)
-    setValues({myRules: rules})
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
+  const handleChangeIndex = index => {
+    setValue(index);
+  };
+  
   return (
     <div>
       <div className={classes.root}>
@@ -65,23 +64,33 @@ export default function App() {
           </Toolbar>
         </AppBar>
       </div>
-      <Container >
-        <UploadPanel
-          values={values}
-          onChange={handleChangeForm('buffer')}
-          onSaveInput={onSaveInput}
-        />
-        <div>
-          {
-            values.myRules.map((rule, i) => {
-              if (rule){
-                return (<RuleCard values={rule} />)
-              }
-            })
-          }
-        </div>
-        
-    </Container>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+        aria-label="full width tabs example"
+      >
+        <Tab label="Import Config" {...a11yProps(0)} />
+        <Tab label="Add New Rule" {...a11yProps(1)} />
+        <Tab label="Item Three" {...a11yProps(2)} />
+      </Tabs>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
+      >
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          <ImportPanel/>
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <NewRule/>
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          Item Three
+        </TabPanel>
+      </SwipeableViews>
     </div>
   );
 }
