@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
     "clsx": "latest",
     "eslint-plugin-flowtype": "^4.6.0",
     "react": "latest",
@@ -19,7 +20,7 @@
     "yaml": "^1.6.0"
   },
   "devDependencies": {
-    "cross-env": "^6.0.0"
+    "cross-env": "^6.0.3"
   },
   "browserslist": {
     "production": [

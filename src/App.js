@@ -72,8 +72,8 @@ export default function App() {
         variant="fullWidth"
         aria-label="full width tabs example"
       >
-        <Tab label="Import Config" {...a11yProps(0)} />
-        <Tab label="Add New Rule" {...a11yProps(1)} />
+        <Tab label="Add New Rule" {...a11yProps(0)} />
+        <Tab label="Import Config" {...a11yProps(1)} />
         <Tab label="Item Three" {...a11yProps(2)} />
       </Tabs>
       <SwipeableViews
@@ -82,10 +82,10 @@ export default function App() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <ImportPanel/>
+          <NewRule/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <NewRule/>
+          <ImportPanel/>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           Item Three
