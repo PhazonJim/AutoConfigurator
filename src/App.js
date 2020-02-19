@@ -6,30 +6,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
-import TabPanel from './TabPanel.js';
-import ImportPanel from './ImportPanel.js';
-import NewRule from './NewRule.js';
+
+import TabPanel from './components/TabPanel';
+import ImportPanel from './components/ImportPanel';
+import NewRule from './components/NewRule/BaseRule';
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  dense: {
-    marginTop: theme.spacing(2),
-  },
-  menu: {
-    width: 200,
-  },
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
+  }
 }));
 
 function a11yProps(index) {

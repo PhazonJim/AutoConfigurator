@@ -2,7 +2,7 @@ import React from 'react';
 import RuleCard from './RuleCard';
 import UploadPanel from './UploadPanel.js';
 import Container from '@material-ui/core/Container';
-import convert from './utils/yamlUtils'
+import convert from '../utils/yamlUtils'
 import YAML from 'yaml'
 
 export default function ImportPanel(props) {
