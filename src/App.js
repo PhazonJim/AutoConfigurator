@@ -59,7 +59,6 @@ export default function App() {
       >
         <Tab label="Add New Rule" {...a11yProps(0)} />
         <Tab label="Import Config" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
       </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -71,9 +70,6 @@ export default function App() {
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           <ImportPanel/>
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
         </TabPanel>
       </SwipeableViews>
     </div>

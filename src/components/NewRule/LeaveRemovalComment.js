@@ -1,95 +1,51 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 200,
-    },
-    optionalControl: {
-        display: "flex",
-        margin: theme.spacing(1),
-    }
-}));
-
+import { useFormContext, Controller } from "react-hook-form";
+ 
 export default function LeaveRemovalComment (){
-    const classes = useStyles();
-
-    const [state, setState] = React.useState({
-        leaveComment: false,
-        lockComment: false,
-        stickyComment: false
-      })
-
-    const handleChange = name => event => {
-        setState({ ...state, [name]: event.target.checked });
-    };
-
+    const { control, watch} = useFormContext();
+    const send_comment = watch("send_comment");
     return (
-        <div>
-            <FormControl variant="outlined" className={classes.optionalControl}>
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        checked={state.leaveComment}
-                        onChange={handleChange('leaveComment')}
-                        value={false}
-                        color="primary"
-                    />
-                    }
-                    label="Leave Removal Comment"
+        <section>
+            {/* Removal Comment Section */}
+            <section>
+                <label>Leave Removal Comment?</label>
+                <Controller
+                    as={<Checkbox />}
+                    name="send_comment"
+                    type="checkbox"
+                    control={control}
                 />
-                {
-                    state.leaveComment &&
-                    <div>
-                    <div>
-                        <FormControlLabel
-                            control={
-                            <Checkbox
-                                checked={state.lockComment}
-                                onChange={handleChange('lockComment')}
-                                value={false}
-                                color="primary"
-                            />
-                            }
-                            label="Lock Comment"
+            </section>
+            { 
+                send_comment === true && (
+                    <section>
+                    <section>
+                        <label>Lock Removal Comment?</label>
+                        <Controller
+                            as={<Checkbox />}
+                            name="comment_locked"
+                            type="checkbox"
+                            control={control}
                         />
-                    </div>
-                    <div>
-                        <FormControlLabel
-                            control={
-                            <Checkbox
-                                checked={state.stickyComment}
-                                onChange={handleChange('stickyComment')}
-                                value={false}
-                                color="primary"
-                            />
-                            }
-                            label="Sticky Comment"
+                    </section>
+                    <section>
+                        <label>Stick Removal Comment?</label>
+                        <Controller
+                            as={<Checkbox />}
+                            name="comment_stickied"
+                            type="checkbox"
+                            control={control}
                         />
-                    </div>
-                    <div>
-                        <TextField
-                            InputProps={{ fullWidth: true }}
-                            fullWidth 
-                            id="outlined-removal-comment"
-                            label="Removal Comment"
-                            placeholder="Removal Comment"
-                            multiline
-                            variant="outlined"
-                        />
-                    </div>
-                    </div>
-                }
-            </FormControl>
-        </div>
-            
-      );  
+                    </section>
+                    <section>
+                        <label>Removal Comment Content</label>
+                        <Controller as={<TextField />} name="comment" control={control} />
+                    </section>
+                    </section>
+                )
+            } 
+        </section>
+    )
 }

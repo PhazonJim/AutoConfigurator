@@ -1,6 +1,6 @@
 {
   "name": "AutoConfigurator",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true react-scripts start",
@@ -11,7 +11,6 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
-    "clsx": "latest",
     "eslint-plugin-flowtype": "^4.6.0",
     "react": "latest",
     "react-dom": "latest",
