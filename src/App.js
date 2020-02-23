@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import SwipeableViews from 'react-swipeable-views';
 
 import TabPanel from './components/TabPanel';
-import ImportPanel from './components/ImportPanel';
+import ImportPanel from './components/Import/ImportPanel';
 import NewRule from './components/NewRule/BaseRule';
 
 const useStyles = makeStyles(theme => ({

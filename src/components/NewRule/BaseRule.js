@@ -11,6 +11,9 @@ import DefaultOptions from './DefaultOptions';
 import LeaveRemovalComment from './LeaveRemovalComment';
 import SendUserMessage from './SendUserMessage';
 import SendModmail from './SendModmail';
+import Actions from './Actions/Actions';
+
+import {defaultValues} from '../../constants';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -28,25 +31,6 @@ const useStyles = makeStyles(theme => ({
         minWidth: 200,
     }
 }));
-
-const defaultValues = {
-    type: "",
-    priority: "",
-    moderators_exempt: false,
-    send_comment: false,
-    comment_stickied: false,
-    comment_locked: false,
-    comment: "",
-    send_message: false,
-    message_subject: "",
-    message: "",
-    send_modmail: false,
-    modmail_subject: "",
-    modmail: "",
-    Select: "",
-    ReactSelect: "",
-    RadioGroup: ""
-  };
 
 export default function NewRule (){
     const classes = useStyles();
@@ -66,7 +50,8 @@ export default function NewRule (){
                         <DefaultOptions/>
                         <LeaveRemovalComment/>
                         <SendUserMessage/>
-                        <SendModmail/>  
+                        <SendModmail/>
+                        <Actions/>
                     </div>
                     <button
                         type="button"

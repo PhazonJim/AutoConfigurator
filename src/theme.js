@@ -17,6 +17,13 @@ const theme = createMuiTheme({
       default: '#fff',
     },
   },
+  card: {
+    maxWidth: 800,
+    minWidth: 600,
+    marginTop: '10px',
+    marginBottom: '10px',
+    backgroundColor: '#f2f3ff'
+  }
 });
 
 export default theme;
