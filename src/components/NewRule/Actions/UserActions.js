@@ -8,7 +8,7 @@ export default function UserActions (){
     return (
         <section>
             <section>
-                <label>Set User Flair?</label>
+                <label>Set User Flair? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="set_flair"

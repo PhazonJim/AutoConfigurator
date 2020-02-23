@@ -7,7 +7,7 @@ export default function SubmissionActions (){
     return (
         <section>
             <section>
-                <label>Perform Moderator Action?</label>
+                <label>Perform Moderator Action? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="action"
@@ -16,7 +16,7 @@ export default function SubmissionActions (){
                 />
             </section>
             <section>
-                <label>Log Action Reason?</label>
+                <label>Log Action Reason? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="action_reason"
@@ -25,7 +25,7 @@ export default function SubmissionActions (){
                 />
             </section>
             <section>
-                <label>Set Submission Flair?</label>
+                <label>Set Submission Flair? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="set_flair"
@@ -88,7 +88,7 @@ export default function SubmissionActions (){
                 />
             </section>
             <section>
-                <label>Set Sort?</label>
+                <label>Set Sort? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="set_suggested_sort"

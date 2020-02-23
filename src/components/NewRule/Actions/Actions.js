@@ -8,7 +8,7 @@ export default function Actions (){
     const { control, watch} = useFormContext();
     const type = watch("type");
     const perform_action = watch("perform_action")
-  
+    const suboptions = ['submission', 'text_submission', 'link_submission']
     return (
         <section>
             <section>
@@ -21,7 +21,7 @@ export default function Actions (){
                 />
             </section>
             {
-                type === 2 && (
+                suboptions.indexOf(type) !== -1 && (
                     <section>
                     {
                         perform_action === true && (
@@ -32,7 +32,7 @@ export default function Actions (){
                 )
             }
             {
-                type === 1 && (
+                type === 'comment' && (
                     <section>
                     {
                         perform_action === true && (

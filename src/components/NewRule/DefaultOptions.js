@@ -15,12 +15,12 @@ export default function DefaultOptions (){
                 <Controller
                     as={
                         <Select>
-                        <MenuItem value={1}>Comment</MenuItem>
-                        <MenuItem value={2}>Submission</MenuItem>
-                        <MenuItem value={3}>Text Submission</MenuItem>
-                        <MenuItem value={4}>Link Submission</MenuItem>
-                        <MenuItem value={5}>X-Post Submission</MenuItem>
-                        <MenuItem value={6}>Any</MenuItem>
+                        <MenuItem value={"comment"}>Comment</MenuItem>
+                        <MenuItem value={"submission"}>Submission</MenuItem>
+                        <MenuItem value={"text_submission"}>Text Submission</MenuItem>
+                        <MenuItem value={"link_submission"}>Link Submission</MenuItem>
+                        <MenuItem value={"crosspost_submission"}>X-Post Submission</MenuItem>
+                        <MenuItem value={"any"}>Any</MenuItem>
                         </Select>
                     }
                     name="type"

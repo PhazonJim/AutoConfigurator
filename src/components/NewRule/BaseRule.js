@@ -12,8 +12,10 @@ import LeaveRemovalComment from './LeaveRemovalComment';
 import SendUserMessage from './SendUserMessage';
 import SendModmail from './SendModmail';
 import Actions from './Actions/Actions';
-
-import {defaultValues} from '../../constants';
+import ToDo from '../../ToDo';
+import YAML from 'yaml';
+import { filterRuleObject } from '../../utils/yamlUtils'
+import { defaultValues } from '../../constants';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -69,12 +71,22 @@ export default function NewRule (){
         </Grid>
         <Grid item xs={6}>
             <Card className={classes.card}>
-            <label> Output </label>
-            {data && (
-                <pre style={{ textAlign: "left", color: "black" }}>
-                    {JSON.stringify(data, null, 2)}
-                </pre>
-            )}
+                <CardContent>
+                <h3> Output </h3>
+                {data && (
+                    <pre style={{ textAlign: "left", color: "black" }}>
+                        ---<br/>
+                        {YAML.stringify(filterRuleObject(data), null, 2)}
+                        ---
+                    </pre>
+                )}
+                </CardContent>
+            </Card>
+            <Card className={classes.card}>
+                <CardContent>
+                    <h3> Upcoming Support </h3>
+                    <ToDo/>
+                </CardContent>
             </Card>
         </Grid>
         </Grid>

@@ -7,7 +7,7 @@ export default function CommentActions (){
     return (
         <section>
             <section>
-                <label>Perform Moderator Action?</label>
+                <label>Perform Moderator Action? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="action"
@@ -16,7 +16,7 @@ export default function CommentActions (){
                 />
             </section>
             <section>
-                <label>Log Report Reason?</label>
+                <label>Log Report Reason? (WIP)</label>
                 <Controller
                     as={<Checkbox />}
                     name="report_reason"
