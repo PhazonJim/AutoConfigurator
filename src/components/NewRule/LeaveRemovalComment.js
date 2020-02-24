@@ -31,7 +31,7 @@ export default function LeaveRemovalComment (){
                         />
                     </section>
                     <section>
-                        <label>Stick Removal Comment?</label>
+                        <label>Sticky Removal Comment?</label>
                         <Controller
                             as={<Checkbox />}
                             name="comment_stickied"

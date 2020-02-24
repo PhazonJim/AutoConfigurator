@@ -1,7 +1,7 @@
 export const defaultValues = {
     type: "",
     priority: "",
-    moderators_exempt: false,
+    moderators_exempt: true,
     send_comment: false,
     comment_stickied: false,
     comment_locked: false,
