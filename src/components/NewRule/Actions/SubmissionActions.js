@@ -1,37 +1,38 @@
 import React from 'react';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useFormContext, Controller } from "react-hook-form";
  
 export default function SubmissionActions (){
     const { control } = useFormContext();
+
     return (
         <section>
             <section>
-                <label>Perform Moderator Action? (WIP)</label>
+                <label>Perform Moderator Action?</label>
                 <Controller
-                    as={<Checkbox />}
+                    as={
+                        <Select>
+                        <MenuItem value={"None"}>None</MenuItem>
+                        <MenuItem value={"remove"}>Remove</MenuItem>
+                        <MenuItem value={"filter"}>Filter</MenuItem>
+                        <MenuItem value={"spam"}>Spam</MenuItem>
+                        <MenuItem value={"report"}>Report</MenuItem>
+                        </Select>
+                    }
                     name="action"
-                    type="checkbox"
                     control={control}
                 />
             </section>
             <section>
-                <label>Log Action Reason? (WIP)</label>
-                <Controller
-                    as={<Checkbox />}
-                    name="action_reason"
-                    type="checkbox"
-                    control={control}
-                />
+                <label>Log Action Reason?</label>
+                <Controller as={<TextField />} name="action_reason" control={control}/>
             </section>
             <section>
-                <label>Set Submission Flair? (WIP)</label>
-                <Controller
-                    as={<Checkbox />}
-                    name="set_flair"
-                    type="checkbox"
-                    control={control}
-                />
+                <label>Set Submission Flair?</label>
+                <Controller as={<TextField />} name="set_flair" control={control}/>
             </section>
             <section>
                 <label>Overwrite Existing Flair?</label>
@@ -88,11 +89,22 @@ export default function SubmissionActions (){
                 />
             </section>
             <section>
-                <label>Set Sort? (WIP)</label>
+                <label>Set Sort?</label>
                 <Controller
-                    as={<Checkbox />}
+                    as={
+                        <Select>
+                        <MenuItem value={"None"}>None</MenuItem>
+                        <MenuItem value={"best"}>Best</MenuItem>
+                        <MenuItem value={"new"}>New</MenuItem>
+                        <MenuItem value={"qa"}>QA</MenuItem>
+                        <MenuItem value={"top"}>Top</MenuItem>
+                        <MenuItem value={"controversial"}>Controversial</MenuItem>
+                        <MenuItem value={"hot"}>Hot</MenuItem>
+                        <MenuItem value={"old"}>Old</MenuItem>
+                        <MenuItem value={"blank"}>Blank</MenuItem>
+                        </Select>
+                    }
                     name="set_suggested_sort"
-                    type="checkbox"
                     control={control}
                 />
             </section>

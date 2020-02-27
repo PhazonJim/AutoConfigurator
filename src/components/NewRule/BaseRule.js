@@ -12,6 +12,7 @@ import LeaveRemovalComment from './LeaveRemovalComment';
 import SendUserMessage from './SendUserMessage';
 import SendModmail from './SendModmail';
 import Actions from './Actions/Actions';
+import SearchFields from './SearchField/SearchFields'
 import ToDo from '../../ToDo';
 import YAML from 'yaml';
 import { filterRuleObject } from '../../utils/yamlUtils'
@@ -50,6 +51,7 @@ export default function NewRule (){
                     <h3>Create New Rule</h3>
                     <div>
                         <DefaultOptions/>
+                        <SearchFields/>
                         <LeaveRemovalComment/>
                         <SendUserMessage/>
                         <SendModmail/>

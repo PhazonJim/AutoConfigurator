@@ -1,6 +1,6 @@
 export const defaultValues = {
-    type: "",
-    priority: "",
+    type: "any",
+    priority: "0",
     moderators_exempt: true,
     send_comment: false,
     comment_stickied: false,
@@ -13,16 +13,17 @@ export const defaultValues = {
     modmail_subject: "",
     modmail: "",
     perform_action: false,
-    action: false,
-    action_reason: false,
-    set_flair: false,
+    action: "None",
+    action_reason: "None",
+    set_flair: "None",
     overwrite_flair: false,
     set_sticky: false,
     set_nsfw: false,
     set_spoiler: false,
     set_contest_mode: false,
     set_original_content: false,
-    set_suggested_sort: false,
+    set_suggested_sort: "None",
     set_locked: false,
-    report_reason: false
+    leave_report_reason: false,
+    report_reason: "None"
 };

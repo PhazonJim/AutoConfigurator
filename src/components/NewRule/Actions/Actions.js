@@ -8,7 +8,7 @@ export default function Actions (){
     const { control, watch} = useFormContext();
     const type = watch("type");
     const perform_action = watch("perform_action")
-    const suboptions = ['submission', 'text_submission', 'link_submission']
+    const suboptions = ['submission', 'text_submission', 'link_submission', 'any']
     return (
         <section>
             <section>
@@ -21,7 +21,7 @@ export default function Actions (){
                 />
             </section>
             {
-                suboptions.indexOf(type) !== -1 && (
+                suboptions.indexOf(type) !== -1 && ( //Base item or Parent submission sub group
                     <section>
                     {
                         perform_action === true && (
@@ -33,6 +33,17 @@ export default function Actions (){
             }
             {
                 type === 'comment' && (
+                    <section>
+                    {
+                        perform_action === true && (
+                            <CommentActions/>
+                        )
+                    }
+                    </section>
+                )
+            }
+            {
+                type === 'author' && ( //author or crosspost author sub group
                     <section>
                     {
                         perform_action === true && (

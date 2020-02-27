@@ -12,7 +12,6 @@ export function filterRuleObject(rule) {
         "send_comment",
         "send_message",
         "send_modmail",
-        "action",
         "perform_action"
     ]
     Object.keys(rule).forEach (prop => {
